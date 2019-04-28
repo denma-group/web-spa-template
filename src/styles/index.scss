@@ -1,0 +1,22 @@
+@import "variables";
+@import "typography";
+
+html,
+body,
+ul,
+ol {
+  margin:  0;
+  padding: 0;
+}
+
+
+html,
+body {
+  background-color: $brand-white;
+}
+
+body * {
+  color: $base-font-color;
+  font: 100% $base-font-family;
+  font-size: $base-font-size;
+}

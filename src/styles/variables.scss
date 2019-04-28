@@ -1,0 +1,24 @@
+@import "theme";
+
+// Colors
+$primary:         $brand-dark-red;
+$secondary:       $brand-red;
+$terciary:        $brand-orange;
+$success:         #28A745;
+$danger:          #DC3545;
+$dark-background: $brand-black;
+
+// Borders
+$base-border:     1px solid $terciary;
+$base-radius:     0.25rem;
+
+// Shadows
+$base-box-shadow: rgba(darken($brand-black, 20%), 0.1) 0 0 3.5px;
+
+// Media queries breakpoints
+$screen-xs:       480px;
+$screen-sm:       576px;
+$screen-md:       768px;
+$screen-lg:       992px;
+$screen-xl:       1200px;
+$screen-xxl:      1600px;
