@@ -55,9 +55,6 @@
     "react/destructuring-assignment": [
       0
     ],
-    "react/prop-types": [
-      0
-    ],
     "no-trailing-spaces": [
       0
     ],
@@ -143,7 +140,8 @@
       1
     ],
     "arrow-parens": [
-      0
+      "error",
+      "as-needed"
     ],
     "linebreak-style": [
       0
@@ -194,7 +192,7 @@
       0
     ],
     "no-nested-ternary": [
-      0
+      "error"
     ],
     "import/no-dynamic-require": [
       0

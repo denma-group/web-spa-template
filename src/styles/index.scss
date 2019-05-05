@@ -9,16 +9,18 @@ ol {
   padding: 0;
 }
 
-
 html,
-body {
+body,
+#root {
+  color: $base-font-color;
   background-color: $brand-white;
+  height: 100%;
+  width: 100%;
 }
 
-body * {
-  color: $base-font-color;
+body *:not(svg) {
   font: 100% $base-font-family;
   font-size: $base-font-size;
   font-weight: $font-normal;
-  line-height: $line-height;
+  line-height: $base-line-height;
 }

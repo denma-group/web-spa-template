@@ -1,19 +1,31 @@
-import 'styles/index.scss';
+// Libraries
 import React from 'react';
-import { mainTheme } from 'styles';
 import styled, { ThemeProvider } from 'styled-components';
 
-const Wrapper = styled.main`
-  min-height: 100vh;
-  ${props => console.log('styled component props', props)}
-`;
+// Styling
+import 'styles/index.scss';
+import { mainTheme } from 'styles';
 
-console.log('mainTheme', mainTheme);
+// Components
+import { Helmet } from 'react-helmet';
+import Routes from 'containers/Routes';
+
+const Wrapper = styled.main`
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+`;
 
 const App = () => (
   <ThemeProvider theme={mainTheme}>
     <Wrapper>
-      App
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          Denma | Software Development Company
+        </title>
+      </Helmet>
+      <Routes />
     </Wrapper>
   </ThemeProvider>
 );
