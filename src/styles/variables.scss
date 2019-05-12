@@ -1,12 +1,14 @@
 @import "theme";
 
 // Colors
-$primary:         $brand-dark-red;
-$secondary:       $brand-red;
-$terciary:        $brand-orange;
-$success:         #28A745;
-$danger:          #DC3545;
-$dark-background: $brand-black;
+$primary:             $brand-dark-red;
+$secondary:           $brand-red;
+$terciary:            $brand-orange;
+$success:           #28A745;
+$danger:            #DC3545;
+$white-color:         $brand-white;
+$dark-color:          $brand-black;
+$light-dark-color:   $brand-light-black;
 
 // Borders
 $base-border:     1px solid $terciary;
