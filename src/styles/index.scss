@@ -18,10 +18,6 @@ body,
   width: 100%;
 }
 
-#root {
-  background-color: transparent;
-}
-
 body *:not(svg) {
   font: 100% $base-font-family;
   font-size: $base-font-size;
