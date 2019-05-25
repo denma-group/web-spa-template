@@ -38,7 +38,7 @@ const Homepage = props => {
         setCss(css`
           opacity: ${1 - mixRatio};
           color: ${theme.whiteColor};
-          background-color: ${theme.brandLightBlack};
+          background-color: transparent;
           box-shadow: none;
         `);
         break;
@@ -47,7 +47,7 @@ const Homepage = props => {
         setCss(css`
           opacity: ${0};
           color: ${theme.whiteColor};
-          background-color: ${theme.brandLightBlack};
+          background-color: transparent;
           box-shadow: none;
         `);
         break;
@@ -56,7 +56,7 @@ const Homepage = props => {
         setCss(css`
           opacity: ${0};
           color: ${theme.brandLightBlack};
-          background-color: ${theme.whiteColor};
+          background-color: transparent;
           box-shadow: none;
         `);
         break;
