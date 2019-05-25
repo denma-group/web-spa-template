@@ -3,16 +3,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Navbar from 'layout/UI/Navbar';
+import Navbar, { NavbarProvider } from 'layout/UI/Navbar';
 
 const RoutesWrapper = props => {
-  const { children } = props;
+  const { children, ...rest } = props;
 
   return (
-    <React.Fragment>
+    <NavbarProvider {...rest}>
       <Navbar />
       {children}
-    </React.Fragment>
+    </NavbarProvider>
   );
 };
 
