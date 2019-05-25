@@ -1,6 +1,6 @@
 // Libraries
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState, useContext } from 'react';
+import styled, { css } from 'styled-components';
 
 // Components
 import AppBar from '@material-ui/core/AppBar';
@@ -11,12 +11,37 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from 'layout/UI/Drawer';
 import Logo from 'components/SVG/Logos/DenmaHorizontal_NM';
 
+// Dependencies
+import Provider, { NavbarContext as Context } from './context';
+
+// Navbar React Context exports
+export const NavbarContext = Context;
+export const NavbarProvider = Provider;
+
 const Navbar = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
+  const navbarContext = useContext(NavbarContext);
+  const [color] = navbarContext.colorState;
+  const [backgroundColor] = navbarContext.backgroundColorState;
+  const [opacity] = navbarContext.opacityState;
+  const [position] = navbarContext.positionState;
+  const [boxShadow] = navbarContext.boxShadowState;
+  const [transform] = navbarContext.transformState;
+  const [styledCss] = navbarContext.cssState;
+
   return (
     <React.Fragment>
-      <StyledAppBar position="static">
+      <Spacing />
+      <StyledAppBar
+        position={position}
+        color={color}
+        backgroundColor={backgroundColor}
+        opacity={opacity}
+        boxShadow={boxShadow}
+        transform={transform}
+        styledCss={styledCss}
+      >
         <Toolbar>
           <a role="button">
             <StyledLogo
@@ -45,11 +70,32 @@ const Navbar = () => {
   );
 };
 
-const StyledAppBar = styled(AppBar)`
+const StyledAppBar = styled(({
+  color,
+  backgroundColor,
+  opacity,
+  boxShadow,
+  transform,
+  styledCss,
+  ...rest
+}) => <AppBar {...rest} />)`
   && {
-    color: ${props => props.theme.whiteColor};
-    background-color: ${props => props.theme.lightDarkColor};
-    box-shadow: none;
+    ${props => (
+      css`
+        color: ${props.color || props.theme.brandLightBlack};
+        background-color: ${props.backgroundColor || 'transparent'};
+        opacity: ${({ opacity }) => (
+          (
+            opacity !== null ||
+            opacity !== undefined
+          ) ? opacity : 1
+        )};
+        box-shadow: ${props.boxShadow || 'none'};
+        transform: ${props.transform || undefined};
+      `
+    )}
+    ${props => (props.styledCss && props.styledCss)}
+    transition: all ease 150ms;
 
     .spacing {
       flex-grow: 1;
@@ -76,6 +122,27 @@ const StyledLogo = styled(Logo)`
   height: auto;
   max-width: 225px;
   cursor: pointer;
+  
+  @media (min-width: 600px) {
+    max-width: 225px !important;
+  }
+
+  @media (min-width: 0px) and (orientation: landscape) {
+    max-width: 150px;
+  }
+  max-width: 125px;
+`;
+
+const Spacing = styled.div`
+  background: transparent;
+  @media (min-width: 600px) {
+    min-height: 64px !important;
+  }
+
+  @media (min-width: 0px) and (orientation: landscape) {
+    min-height: 48px;
+  }
+  min-height: 56px;
 `;
 
 export default Navbar;

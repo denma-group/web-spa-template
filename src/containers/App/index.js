@@ -14,7 +14,7 @@ import Loader from 'components/UI/Loader';
 import LogoLoader from 'components/UI/LogoLoader';
 
 const LOADER_DELAY = 1000;
-const LOADER_DEV_DELAY = 1500;
+const LOADER_DEV_DELAY = 150;
 const RESOLVED_CALLBACK_DELAY = process.env.NODE_ENV === 'development' ? LOADER_DEV_DELAY : LOADER_DELAY;
 
 const App = () => {

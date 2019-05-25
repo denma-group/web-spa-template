@@ -17,6 +17,7 @@ RoutesWrapper.propTypes = {
 };
 
 const PageWrapper = styled.main`
+  background: transparent;
   flex: 1;
 `;
 
