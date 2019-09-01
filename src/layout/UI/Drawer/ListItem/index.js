@@ -25,7 +25,7 @@ const Item = props => {
       <StyledListItemText
         primary={(
           <StyledListTitle
-            variant="subheading"
+            variant="subtitle1"
           >
             {title}
           </StyledListTitle>

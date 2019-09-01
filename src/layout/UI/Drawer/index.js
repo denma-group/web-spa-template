@@ -11,6 +11,12 @@ import ContactIcon from '@material-ui/icons/Mail';
 import DesignIcon from '@material-ui/icons/DeveloperBoard';
 import DevelopIcon from '@material-ui/icons/DeveloperMode';
 import DeliverIcon from '@material-ui/icons/HowToReg';
+import MaintainIcon from '@material-ui/icons/Sync';
+
+import NewEnterprisesIcon from '@material-ui/icons/Business';
+import ExistingAppsIcons from '@material-ui/icons/Apps';
+import MarketingIcon from '@material-ui/icons/DataUsage';
+import TechConsultingIcon from '@material-ui/icons/PhoneIphone';
 
 // Components
 import Drawer from '@material-ui/core/Drawer';
@@ -50,9 +56,9 @@ const NavbarDrawer = props => {
       <StyledDivider />
       <List>
         {[
-          { icon: <InfoIcon />, title: 'First', caption: 'First caption' }, 
-          { icon: <WorkIcon />, title: 'Second', caption: 'Second caption' }, 
-          { icon: <ContactIcon />, title: 'Third', caption: 'Third caption' }, 
+          { icon: <InfoIcon />, title: 'About us', caption: 'Meaning of DENMA, and our values' }, 
+          { icon: <WorkIcon />, title: 'About our work', caption: 'An overview of how we work alongside our clients' }, 
+          { icon: <ContactIcon />, title: 'Contact', caption: 'How to get in touch' }, 
         ].map(item => (
           <ListItem
             key={item.title}
@@ -62,14 +68,33 @@ const NavbarDrawer = props => {
         ))}
       </List>
       <StyledDivider />
-      <StyledListHeader variant="title">
-        Another section
+      <StyledListHeader variant="h6">
+        How we work
       </StyledListHeader>
       <List>
         {[
-          { icon: <DesignIcon />, title: 'First', caption: 'First caption' }, 
-          { icon: <DevelopIcon />, title: 'Second', caption: 'Second caption' }, 
-          { icon: <DeliverIcon />, title: 'Third', caption: 'Third caption' }, 
+          { icon: <DesignIcon />, title: 'Design', caption: 'Design caption' }, 
+          { icon: <DevelopIcon />, title: 'Develop', caption: 'Develop caption' }, 
+          { icon: <DeliverIcon />, title: 'Deliver', caption: 'Deliver caption' }, 
+          { icon: <MaintainIcon />, title: 'Maintain', caption: 'Maintain caption' }, 
+        ].map(item => (
+          <ListItem
+            key={item.title}
+            onClick={closeDrawer}
+            {...item}
+          />
+        ))}
+      </List>
+      <StyledDivider />
+      <StyledListHeader variant="h6">
+        How we help
+      </StyledListHeader>
+      <List>
+        {[
+          { icon: <NewEnterprisesIcon />, title: 'New Enterprises', caption: 'New Enterprises caption' }, 
+          { icon: <ExistingAppsIcons />, title: 'Existing Applications', caption: 'Existing Applications caption' }, 
+          { icon: <MarketingIcon />, title: 'Marketing Strategies and Analytics', caption: 'Marketing Strategies and Analytics caption' }, 
+          { icon: <TechConsultingIcon />, title: 'Tech Consulting', caption: 'Tech Consulting caption' }, 
         ].map(item => (
           <ListItem
             key={item.title}
@@ -92,6 +117,7 @@ const NavbarDrawer = props => {
         tabIndex={0}
         role="button"
         onKeyDown={closeDrawer}
+        className="drawer-container"
       >
         {fullList}
       </div>
@@ -109,7 +135,7 @@ const StyledDrawer = styled(Drawer)`
     * {
       color: ${props => props.theme.whiteColor};
     }
-    .MuiDrawer-paperAnchorRight-89 {
+    .drawer-container {
       background-color: ${props => props.theme.lightDarkColor};
     }
   }

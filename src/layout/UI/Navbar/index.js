@@ -70,15 +70,7 @@ const Navbar = () => {
   );
 };
 
-const StyledAppBar = styled(({
-  color,
-  backgroundColor,
-  opacity,
-  boxShadow,
-  transform,
-  styledCss,
-  ...rest
-}) => <AppBar {...rest} />)`
+const StyledAppBar = styled(({ color, backgroundColor, opacity, boxShadow, transform, styledCss, ...rest }) => <AppBar {...rest} />)`
   && {
     ${props => (
       css`

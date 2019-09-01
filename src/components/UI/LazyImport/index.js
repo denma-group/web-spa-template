@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 /**
  * After the lazy imported component loads, delay the promise to increase smoothness.
  */
-const LazyImport = props => {
+const LazyImport = (props) => {
   const {
     importedComponent,
     resolvedCallback,
@@ -16,16 +16,16 @@ const LazyImport = props => {
   } = props;
 
   const Component = lazy(() => Promise.all([
-    importedComponent,
-    new Promise(resolve => {
-      if (resolvedCallback) {
-        setTimeout(() => {
-          resolvedCallback('It works.');
-        }, resolvedCallbackDelay);
-      }
-      setTimeout(resolve, process.env.NODE_ENV === 'development' ? devDelay : delay);
-    })
-  ]).then(([moduleExports]) => moduleExports));
+      importedComponent,
+      new Promise((resolve) => {
+        if (resolvedCallback) {
+          setTimeout(() => {
+            resolvedCallback('It works.');
+          }, resolvedCallbackDelay);
+        }
+        setTimeout(resolve, process.env.NODE_ENV === 'development' ? devDelay : delay);
+      })
+    ]).then(([moduleExports]) => moduleExports));
 
   return shouldRender ? <Component /> : null;
 };

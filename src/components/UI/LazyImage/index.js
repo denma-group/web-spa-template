@@ -18,7 +18,7 @@ const StyledImage = styled.img`
   }
   @keyframes fade-in {
     0% {
-      opacity: 0
+      opacity: 0;
     }
     100% {
       opacity: 1;
@@ -37,7 +37,7 @@ class LazyImage extends Component {
     offset: PropTypes.number,
     alt: PropTypes.string,
     draggable: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     onLoad: undefined,
@@ -46,34 +46,25 @@ class LazyImage extends Component {
     width: undefined,
     height: undefined,
     objectFit: undefined,
-    offset: window.innerHeight,
+    offset: 0,
     src: undefined,
     alt: undefined
-  }
+  };
 
   state = {
     className: 'loading'
-  }
+  };
 
-  onLoadHandler = event => {
+  onLoadHandler = (event) => {
     const { onLoad } = this.props;
     if (onLoad) {
       onLoad(event);
     }
     this.setState({ className: 'loaded' });
-  }
+  };
 
   render() {
-    const {
-      offset,
-      className,
-      width,
-      height,
-      objectFit,
-      alt,
-      src,
-      draggable
-    } = this.props;
+    const { offset, className, width, height, objectFit, alt, src, draggable } = this.props;
 
     const lazyImageStyleProps = {
       width,
@@ -82,17 +73,10 @@ class LazyImage extends Component {
     };
 
     return (
-      <LazyLoad
-        offset={offset}
-        debounce={false}
-        height={height || '100%'}
-      >
+      <LazyLoad offset={offset} debounce={false} height={height || '100%'}>
         <StyledImage
           style={lazyImageStyleProps}
-          className={[
-            className,
-            this.state.className
-          ].join(' ')}
+          className={[className, this.state.className].join(' ')}
           onLoad={this.onLoadHandler}
           alt={alt}
           src={src}
