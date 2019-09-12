@@ -4,7 +4,7 @@ import styled, { ThemeProvider, css } from 'styled-components';
 
 // Styling
 import 'static/theme/index.scss';
-import { mainTheme } from 'styles';
+import { mainTheme } from 'static/theme';
 
 // Components
 import { CSSTransition } from 'react-transition-group';
