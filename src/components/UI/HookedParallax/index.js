@@ -4,8 +4,8 @@ import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 
 // Dependencies
-import { useTranslateContent } from 'src/utils/hooks/useTranslateContext';
-import elementPageOffset from 'src/utils/elementPageOffset';
+import { useTranslateContent } from 'utils/hooks/useTranslateContext';
+import elementPageOffset from 'utils/elementPageOffset';
 
 // TODO: check mobile
 const HookedParallax = props => {

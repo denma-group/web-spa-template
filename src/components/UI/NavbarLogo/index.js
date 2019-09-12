@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Components
-import Logo from 'src/components/SVG/Logos/DenmaHorizontal_NM';
+import Logo from 'components/SVG/Logos/DenmaHorizontal_NM';
 
 const NavbarLogo = () => (
   <StyledLogo

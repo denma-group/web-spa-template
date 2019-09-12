@@ -2,7 +2,7 @@
 import { useEffect, useCallback } from 'react';
 
 // Dependencies
-import { mixColors } from 'src/utils/mixColors';
+import { mixColors } from 'utils/mixColors';
 import debounce from 'lodash/debounce';
 
 /**
