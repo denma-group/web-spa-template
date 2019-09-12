@@ -1,41 +1,76 @@
-import React, { useRef, useState, useLayoutEffect } from 'react';
-
+// Libraries
+import React, { useRef, useState, useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
-import { useTranslateContent } from '../../../utils/hooks/useTranslateContent';
+
+// Dependencies
+import { useTranslateContent } from 'src/utils/hooks/useTranslateContext';
+import elementPageOffset from 'src/utils/elementPageOffset';
 
 // TODO: check mobile
+const HookedParallax = props => {
+  const [isReady, setIsReady] = useState(false);
 
-const HookedParallax = (props) => {
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
+
   // multiplierY defines how fast or slow we translate our elements
   const { multiplierY, style, children } = props;
   const [rect, setRect] = useState({});
 
   const divRef = useRef(null);
 
-  const { translateYVal } = useTranslateContent(multiplierY, rect);
+  const { translateYVal } = useTranslateContent(multiplierY, rect, isReady);
 
-  useLayoutEffect(() => {
-    if (divRef) {
-      const { y, height } = divRef.current.getBoundingClientRect();
-      setRect({ startingY: y, componentHeight: height });
+  useEffect(() => {
+    if (divRef && divRef.current && isReady) {
+      const { pageTop, height } = elementPageOffset(divRef.current);
+      // rect object has the Y position and height of the component.
+      setRect({ startingY: pageTop, componentHeight: height });
     }
-  }, [divRef]);
+  }, [divRef, isReady]);
+
+  // Do not render component until the body's height has been set
+  if (!isReady || !rect) return null;
 
   return (
-    <div ref={divRef} style={{ ...style, transform: `translateY(${translateYVal}px)` }}>
+    <Container
+      ref={divRef}
+      style={{
+        ...style,
+        transform: `translateY(${translateYVal}px)`,
+      }}
+    >
       {children}
-    </div>
+    </Container>
   );
 };
 
 HookedParallax.propTypes = {
   multiplierY: PropTypes.number.isRequired,
   children: PropTypes.node.isRequired,
-  style: PropTypes.object
+  style: PropTypes.instanceOf(Object),
 };
 
 HookedParallax.defaultProps = {
-  style: {}
+  style: {},
 };
+
+const popFadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  30%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const Container = styled.div`
+  animation: ${popFadeIn} ease 250ms;
+`;
 
 export default HookedParallax;

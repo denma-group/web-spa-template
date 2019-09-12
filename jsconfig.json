@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "module": "commonjs",
-    "allowSyntheticDefaultImports": true,
-    "target": "es6"
-  },
-  "exclude": [
-      "dist",
-      "node_modules"
-  ]
+    // This must be specified if "paths" is set
+    "baseUrl": "./src",
+    // Relative to "baseUrl"
+    "paths": {
+      "*": [
+        "*"
+      ]
+    }
+  }
 }

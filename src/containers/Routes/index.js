@@ -6,7 +6,6 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 // Components
 import RoutesWrapper from 'layout/UI/RoutesWrapper';
 import Homepage from 'containers/Homepage';
-import AboutUs from 'containers/AboutUs';
 
 const Routes = (props) => {
   const { location } = props;
@@ -22,7 +21,6 @@ const Routes = (props) => {
     <RoutesWrapper>
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route exact path="/about-us" component={AboutUs} />
         <Route path="/hello-world" render={() => <div>Hello world!</div>} />
       </Switch>
     </RoutesWrapper>

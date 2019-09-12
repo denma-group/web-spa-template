@@ -1,12 +1,16 @@
+// Libraries
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import LazyLoad from 'react-lazyload';
 import styled from 'styled-components';
+
+// Components
+import LazyLoad from 'react-lazyload';
 
 const StyledImage = styled.img`
   width: ${props => props.width || '100%'};
   height: ${props => props.height || ''};
-  object-fit: ${props => props.objectFit || 'cover'};
+  object-fit: ${props => props.objectFit || 'contain'};
+  max-height: 100%;
   &.loading {
     opacity: 0;
     visibility: hidden;
@@ -18,7 +22,7 @@ const StyledImage = styled.img`
   }
   @keyframes fade-in {
     0% {
-      opacity: 0;
+      opacity: 0
     }
     100% {
       opacity: 1;
@@ -37,7 +41,7 @@ class LazyImage extends Component {
     offset: PropTypes.number,
     alt: PropTypes.string,
     draggable: PropTypes.bool
-  };
+  }
 
   static defaultProps = {
     onLoad: undefined,
@@ -49,22 +53,31 @@ class LazyImage extends Component {
     offset: 0,
     src: undefined,
     alt: undefined
-  };
+  }
 
   state = {
     className: 'loading'
-  };
+  }
 
-  onLoadHandler = (event) => {
+  onLoadHandler = event => {
     const { onLoad } = this.props;
     if (onLoad) {
       onLoad(event);
     }
     this.setState({ className: 'loaded' });
-  };
+  }
 
   render() {
-    const { offset, className, width, height, objectFit, alt, src, draggable } = this.props;
+    const {
+      offset,
+      className,
+      width,
+      height,
+      objectFit,
+      alt,
+      src,
+      draggable
+    } = this.props;
 
     const lazyImageStyleProps = {
       width,
@@ -73,10 +86,17 @@ class LazyImage extends Component {
     };
 
     return (
-      <LazyLoad offset={offset} debounce={false} height={height || '100%'}>
+      <LazyLoad
+        offset={offset}
+        debounce={false}
+        height={height || '100%'}
+      >
         <StyledImage
           style={lazyImageStyleProps}
-          className={[className, this.state.className].join(' ')}
+          className={[
+            className,
+            this.state.className
+          ].join(' ')}
           onLoad={this.onLoadHandler}
           alt={alt}
           src={src}
