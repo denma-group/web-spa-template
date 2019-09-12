@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import styled, { ThemeProvider, css } from 'styled-components';
 
 // Styling
-import 'styles/index.scss';
+import 'static/theme/index.scss';
 import { mainTheme } from 'styles';
 
 // Components
@@ -12,9 +12,6 @@ import { Helmet } from 'react-helmet';
 import LazyImport from 'components/Util/LazyImport';
 import Loader from 'components/UI/Loader';
 import LogoLoader from 'components/UI/LogoLoader';
-
-// Styles
-import 'static/theme/index.scss';
 
 const LOADER_DELAY = 1000;
 const LOADER_DEV_DELAY = 500;
