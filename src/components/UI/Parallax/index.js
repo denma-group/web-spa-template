@@ -1,51 +1,76 @@
 // Libraries
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-// Components
-import Plx from 'react-plx';
+// Dependencies
+import { useTranslateContent } from 'utils/hooks/useTranslateContext';
+import elementPageOffset from 'utils/elementPageOffset';
 
-// An array of parallax effects to be applied - see below for detail
-const parallaxData = [
-  {
-    start: 100,
-    end: 400,
-    properties: [
-      {
-        startValue: 0,
-        endValue: -300,
-        property: 'translateY'
-      },
-    ],
-  },
-];
-
+// TODO: check mobile
 const Parallax = props => {
-  const { children } = props;
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
+
+  // multiplierY defines how fast or slow we translate our elements
+  const { multiplierY, style, children } = props;
+  const [rect, setRect] = useState({});
+
+  const divRef = useRef(null);
+
+  const { translateYVal } = useTranslateContent(multiplierY, rect, isReady);
+
+  useEffect(() => {
+    if (divRef && divRef.current && isReady) {
+      const { pageTop, height } = elementPageOffset(divRef.current);
+      // rect object has the Y position and height of the component.
+      setRect({ startingY: pageTop, componentHeight: height });
+    }
+  }, [divRef, isReady]);
+
+  // Do not render component until the body's height has been set
+  if (!isReady || !rect) return null;
+
   return (
-    <StyledPlx
-      parallaxData={parallaxData}
+    <Container
+      ref={divRef}
       style={{
-        height: '100%'
+        ...style,
+        transform: `translateY(${translateYVal}px)`,
       }}
     >
       {children}
-    </StyledPlx>
+    </Container>
   );
 };
 
 Parallax.propTypes = {
-  children: PropTypes.node.isRequired
+  multiplierY: PropTypes.number.isRequired,
+  children: PropTypes.node.isRequired,
+  style: PropTypes.instanceOf(Object),
 };
 
-const StyledPlx = styled(Plx)`
-  position: absolute;
-  width: 100%;
-  top: 5vh;
-  left: 0;
-  will-change: transform;
-  transform-style: preserve-3d;
+Parallax.defaultProps = {
+  style: {},
+};
+
+const popFadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  30%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const Container = styled.div`
+  animation: ${popFadeIn} ease 250ms;
 `;
 
 export default Parallax;

@@ -9,9 +9,12 @@ import { mainTheme } from 'styles';
 // Components
 import { CSSTransition } from 'react-transition-group';
 import { Helmet } from 'react-helmet';
-import LazyImport from 'components/UI/LazyImport';
+import LazyImport from 'components/Util/LazyImport';
 import Loader from 'components/UI/Loader';
 import LogoLoader from 'components/UI/LogoLoader';
+
+// Styles
+import 'static/theme/index.scss';
 
 const LOADER_DELAY = 1000;
 const LOADER_DEV_DELAY = 500;
@@ -65,7 +68,7 @@ const App = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   &&& {
     display: flex;
     flex-flow: column;

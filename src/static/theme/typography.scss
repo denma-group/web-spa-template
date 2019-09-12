@@ -1,0 +1,14 @@
+
+@import "theme";
+
+$font-mono:        'Courier', monospace;
+$font-sans:        'Source Sans Pro', Arial, sans-serif;
+$font-serif:       'Bree Serif', Times, serif;
+$base-font-color:  $brand-black;
+$base-font-family: $font-sans;
+$base-font-size:   15px;
+$font-normal:      400;
+$font-semibold:    600;
+$font-bold:        700;
+$base-line-height: 1.5;
+$headings:         (6, 5, 4, 3, 2, 1);

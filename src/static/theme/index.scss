@@ -1,0 +1,49 @@
+@import "variables";
+@import "typography";
+@import "nprogress";
+
+html,
+body,
+ul,
+ol {
+  margin:  0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  will-change: background-color;
+  transition: background-color ease 300ms;
+}
+
+html,
+body,
+#root {
+  color: $base-font-color;
+  background-color: $brand-white;
+  width: 100%;
+  min-height: 100%;
+}
+
+#root {
+  background-color: transparent;
+}
+
+body *:not(svg) {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+b {
+  font-weight: $font-bold;
+}
+
+header a {
+  text-decoration: unset;
+}
+
+.rm-hero-slider {
+  width: 100%;
+  height: 100%;
+}

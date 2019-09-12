@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withTheme } from 'styled-components';
 
 // Dependencies
-import { mainTheme } from 'styles';
+import { mainTheme } from 'static/theme';
 
 const defaultColor = mainTheme.whiteColor;
 const defaultBackgroundColor = mainTheme.lightDarkColor;

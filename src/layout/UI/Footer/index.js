@@ -1,9 +1,17 @@
-// React
+// Libraires
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // Components
-import Grid from '@material-ui/core/Grid';
+import {
+  Row,
+  Col,
+} from 'components/Layout';
+import {
+  H6,
+  Caption,
+  Subtitle,
+} from 'components/UI/Text';
 import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
 import LinkedIn from 'components/SVG/Footer/LinkedIn';
@@ -11,53 +19,53 @@ import LinkedIn from 'components/SVG/Footer/LinkedIn';
 const Footer = props => (
   <Wrapper {...props}>
     <Container>
-      <LinksContainer container>
+      <LinksContainer>
         {/* ABOUT US LINKS */}
         <StyledGridItem item xs={12} md={6} lg={3}>
-          <Header variant="h6">
+          <StyledH6>
             About Us
-          </Header>
+          </StyledH6>
           <a href="/link" className="link">Link</a>
           <a href="/link" className="link">Link</a>
           <a href="/link" className="link">Link</a>
         </StyledGridItem>
         {/* OUR WORK LINKS */}
         <StyledGridItem item xs={12} md={6} lg={3}>
-          <Header variant="h6">
+          <StyledH6>
             Our Work
-          </Header>
+          </StyledH6>
           <a href="/link" className="link">Link</a>
           <a href="/link" className="link">Link</a>
           <a href="/link" className="link">Link</a>
         </StyledGridItem>
         {/* OUR WORK LINKS */}
         <StyledGridItem item xs={12} md={6} lg={3}>
-          <Header variant="h6">
+          <StyledH6>
             Contact
-          </Header>
+          </StyledH6>
           <a href="/link" className="link">Link</a>
           <a href="/link" className="link">Link</a>
           <a href="/link" className="link">Link</a>
         </StyledGridItem>
         <StyledGridItem item xs={12} md={6} lg={3}>
-          <Header variant="h6">
+          <StyledH6>
             More
-          </Header>
+          </StyledH6>
+          <a href="/" className="link">Home</a>
           <a href="/link" className="link">Link</a>
-          <a href="/link" className="link">Link</a>
-          <a href="/link" className="link">Link</a>
+          <a href="/forever" className="link">Forever</a>
         </StyledGridItem>
       </LinksContainer>
       <hr />
-      <ContactContainer container>
+      <ContactContainer>
         {/* CONTACT HEADER */}
         <StyledGridItem item sm={12} md={9}>
-          <Header variant="h6">
+          <StyledH6>
             Denma
-          </Header>
-          <Typography variant="subtitle1">
-            Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </Typography>
+          </StyledH6>
+          <StyledSubtitle color="whiteColor">
+            Your vision. Developed.
+          </StyledSubtitle>
           <Typography
             variant="caption"
             style={{
@@ -75,12 +83,12 @@ const Footer = props => (
               <LinkedIn />
             </StyledFab>
           </MediaButtons>
-          <Header variant="caption">
+          <StyledCaption>
             <a className="contact" href="tel:+11234567890">123 - 456 - 7890</a>
-          </Header>
-          <Header variant="caption">
+          </StyledCaption>
+          <StyledCaption>
             <a className="contact" href="mailto:contact@denma.us?subject=Hi!">contact@denma.us</a>
-          </Header>
+          </StyledCaption>
         </StyledGridItem>
       </ContactContainer>
     </Container>
@@ -120,22 +128,32 @@ const Container = styled.div`
   }
 `;
 
-export const Header = styled(Typography)`
+const typographyCss = css`
   &&& {
     text-transform: uppercase;
     font-weight: 700;
-    color: ${({ theme }) => theme.secondary};
   }
 `;
 
-const StyledGridItem = styled(Grid)`
+const StyledH6 = styled(H6)`
+  ${typographyCss};
+`;
+
+const StyledCaption = styled(Caption)`
+  ${typographyCss};
+`;
+
+const StyledSubtitle = styled(Subtitle)`
+  ${typographyCss};
+`;
+
+const StyledGridItem = styled(Col)`
   &&& {
     padding: 16px 18px;
     .contact {
       display: inline-block;
       color: ${({ theme }) => theme.whiteColor};
       font-size: 14px;
-      line-height: normal;
       text-decoration: none;
     }
     h6 {
@@ -147,17 +165,16 @@ const StyledGridItem = styled(Grid)`
       color: ${({ theme }) => theme.whiteColor};
       font-size: 16px;
       margin-bottom: 8px;
-      line-height: normal;
       text-decoration: none;
     }
   }
 `;
 
-const LinksContainer = styled(Grid)`
+const LinksContainer = styled(Row)`
   padding: 32px 0px 34px;
 `;
 
-const ContactContainer = styled(Grid)`
+const ContactContainer = styled(Row)`
   padding: 48px 0px 34px;
 `;
 

@@ -3,8 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Navbar, { NavbarProvider } from 'layout/UI/Navbar';
-import Footer from 'layout/UI/Footer';
+import {
+  Footer,
+  Navbar,
+  NavbarProvider,
+} from 'layout/UI';
 
 const RoutesWrapper = props => {
   const { children, ...rest } = props;

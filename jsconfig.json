@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
-    // This must be specified if "paths" is set
+    "module": "commonjs",
+    "target": "es2016",
+    "jsx": "preserve",
+    "checkJs": true,
     "baseUrl": "./src",
-    // Relative to "baseUrl"
     "paths": {
       "*": [
         "*"
       ]
     }
-  }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
 }
