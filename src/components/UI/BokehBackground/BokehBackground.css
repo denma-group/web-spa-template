@@ -1,0 +1,252 @@
+.rm-bokeh {
+  width: 100%;
+  height: 100%;
+}
+
+.rm-bokeh-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  background: var(--background-color, inherit);
+  z-index: -1;
+}
+
+.rm-bokeh-wrapper::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, var(--overlay-opacity, 0));
+  transition: background-color ease 200ms;
+}
+
+.rm-bokeh-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.rm-bokeh-wrapper span {
+  width: var(--background-size, 15vmin);
+  height: var(--background-size, 15vmin);
+  border-radius: var(--background-size, 15vmin);
+  opacity: var(--ball-opacity, 0.8);
+  backface-visibility: hidden;
+  position: absolute;
+  animation-name: move;
+  animation-duration: var(--animation-duration, 6s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: -1;
+}
+
+.rm-bokeh-wrapper span:nth-child(1) {
+  color: var(--ball-1-color, #583C87);
+  top: 5%;
+  left: 99%;
+  animation-duration: var(--ball-1-animation-duration, 13.6s);
+  animation-delay: var(--ball-1-animation-delay, -5.1s);
+  transform-origin: -7% 17%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-1-size, 5.0584339767vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(2) {
+  color: var(--ball-2-color, #FFACAC);
+  top: 51%;
+  left: 23%;
+  animation-duration: var(--ball-2-animation-duration, 12s);
+  animation-delay: var(--ball-2-animation-delay, -1s);
+  transform-origin: 15% 7%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-2-size, 9.9476437847vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(3) {
+  color: var(--ball-3-color, #FFACAC);
+  top: 42%;
+  left: 84%;
+  animation-duration: var(--ball-3-animation-duration, 15.9s);
+  animation-delay: var(--ball-3-animation-delay, -15.1s);
+  transform-origin: -3% -10%;
+  box-shadow: var(--ball-size, -40vmin) 0 var(--ball-3-size, 9.9280821187vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(4) {
+  color: var(--ball-4-color, #E45A84);
+  top: 75%;
+  left: 47%;
+  animation-duration: var(--ball-4-animation-duration, 14.7s);
+  animation-delay: var(--ball-4-animation-delay, -8.1s);
+  transform-origin: 7% 21%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-4-size, 12.9354933279vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(5) {
+  color: var(--ball-5-color, #E45A84);
+  top: 87%;
+  left: 11%;
+  animation-duration: var(--ball-5-animation-duration, 13s);
+  animation-delay: var(--ball-5-animation-delay, -9.7s);
+  transform-origin: 22% 15%;
+  box-shadow: var(--ball-size, -40vmin) 0 var(--ball-5-size, 13.0438930631vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(6) {
+  color: var(--ball-6-color, #E45A84);
+  top: 49%;
+  left: 98%;
+  animation-duration: var(--ball-6-animation-duration, 14.5s);
+  animation-delay: var(--ball-6-animation-delay, -1.2s);
+  transform-origin: -15% -11%;
+  box-shadow: var(--ball-size, -40vmin) 0 var(--ball-6-size, 7.2284753955vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(7) {
+  color: var(--ball-7-color, #E45A84);
+  top: 98%;
+  left: 48%;
+  animation-duration: var(--ball-7-animation-duration, 15.8s);
+  animation-delay: var(--ball-7-animation-delay, -6.3s);
+  transform-origin: -19% 16%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-7-size, 8.7301327174vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(8) {
+  color: var(--ball-8-color, #583C87);
+  top: 31%;
+  left: 71%;
+  animation-duration: var(--ball-8-animation-duration, 11.5s);
+  animation-delay: var(--ball-8-animation-delay, -1.5s);
+  transform-origin: 16% -1%;
+  box-shadow: var(--ball-size, -40vmin) 0 var(--ball-8-size, 14.2688250746vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(9) {
+  color: var(--ball-9-color, #FFACAC);
+  top: 31%;
+  left: 83%;
+  animation-duration: var(--ball-9-animation-duration, 13.3s);
+  animation-delay: var(--ball-9-animation-delay, -7.7s);
+  transform-origin: 15% 9%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-9-size, 7.6739022424vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(10) {
+  color: var(--ball-10-color, #583C87);
+  top: 21%;
+  left: 63%;
+  animation-duration: var(--ball-10-animation-duration, 14.6s);
+  animation-delay: var(--ball-10-animation-delay, -0.3s);
+  transform-origin: 1% -24%;
+  box-shadow: var(--ball-size, -40vmin) 0 var(--ball-10-size, 5.357814429vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(11) {
+  color: var(--ball-11-color, #E45A84);
+  top: 72%;
+  left: 10%;
+  animation-duration: var(--ball-11-animation-duration, 12.3s);
+  animation-delay: var(--ball-11-animation-delay, -4.2s);
+  transform-origin: -19% -7%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-11-size, 5.261473207vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(12) {
+  color: var(--ball-12-color, #E45A84);
+  top: 85%;
+  left: 80%;
+  animation-duration: var(--ball-12-animation-duration, 12.2s);
+  animation-delay: var(--ball-12-animation-delay, -14.3s);
+  transform-origin: -18% 24%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-12-size, 13.0328656209vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(13) {
+  color: var(--ball-13-color, #E45A84);
+  top: 16%;
+  left: 43%;
+  animation-duration: var(--ball-13-animation-duration, 14.8s);
+  animation-delay: var(--ball-13-animation-delay, -8.1s);
+  transform-origin: -9% -18%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-13-size, 11.74188621vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(14) {
+  color: var(--ball-14-color, #583C87);
+  top: 61%;
+  left: 100%;
+  animation-duration: var(--ball-14-animation-duration, 13.3s);
+  animation-delay: var(--ball-14-animation-delay, -1.7s);
+  transform-origin: 1% 10%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-14-size, 11.9335646773vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(15) {
+  color: var(--ball-15-color, #FFACAC);
+  top: 70%;
+  left: 25%;
+  animation-duration: var(--ball-15-animation-duration, 12.6s);
+  animation-delay: var(--ball-15-animation-delay, -14s);
+  transform-origin: 5% 22%;
+  box-shadow: var(--ball-size, -40vmin) 0 var(--ball-15-size, 6.4282406645vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(16) {
+  color: var(--ball-16-color, #583C87);
+  top: 10%;
+  left: 82%;
+  animation-duration: var(--ball-16-animation-duration, 12.4s);
+  animation-delay: var(--ball-16-animation-delay, -8.9s);
+  transform-origin: -10% -9%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-16-size, 7.0524887051vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(17) {
+  color: var(--ball-17-color, #FFACAC);
+  top: 25%;
+  left: 28%;
+  animation-duration: var(--ball-17-animation-duration, 15.4s);
+  animation-delay: var(--ball-17-animation-delay, -8s);
+  transform-origin: -19% -3%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-17-size, 10.6038519068vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(18) {
+  color: var(--ball-18-color, #FFACAC);
+  top: 53%;
+  left: 59%;
+  animation-duration: var(--ball-18-animation-duration, 14.5s);
+  animation-delay: var(--ball-18-animation-delay, -8.8s);
+  transform-origin: 19% -21%;
+  box-shadow: var(--ball-size, -40vmin) 0 var(--ball-18-size, 13.3155790605vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(19) {
+  color: var(--ball-19-color, #E45A84);
+  top: 30%;
+  left: 5%;
+  animation-duration: var(--ball-19-animation-duration, 13.3s);
+  animation-delay: var(--ball-19-animation-delay, -12.5s);
+  transform-origin: -9% -16%;
+  box-shadow: var(--ball-size, 40vmin) 0 var(--ball-19-size, 13.4019088734vmin) currentColor;
+}
+
+.rm-bokeh-wrapper span:nth-child(20) {
+  color: var(--ball-20-color, #FFACAC);
+  top: 15%;
+  left: 57%;
+  animation-duration: var(--ball-20-animation-duration, 11.4s);
+  animation-delay: var(--ball-20-animation-delay, -2.8s);
+  transform-origin: 6% 1%;
+  box-shadow: var(--ball-size, -40vmin) 0 var(--ball-20-size, 12.0204575474vmin) currentColor;
+}
+
+@keyframes move {
+  100% {
+    transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}

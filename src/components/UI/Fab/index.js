@@ -9,8 +9,7 @@ const Fab = props => (
   <StyledFab {...props} />
 );
 
-
-const StyledFab = styled(RawFab)`
+const StyledFab = styled(({ color, backgroundColor, ...rest }) => <RawFab {...rest} />)`
   &&& {
     display: inline-block;
     width: fit-content;

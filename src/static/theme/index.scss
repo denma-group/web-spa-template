@@ -17,16 +17,24 @@ body {
 }
 
 html,
+body {
+  background-color: $body-background;
+}
+
+html,
 body,
 #root {
   color: $base-font-color;
-  background-color: $brand-white;
   width: 100%;
   min-height: 100%;
 }
 
 #root {
-  background-color: transparent;
+  background: #fff;
+  min-height: 100%;
+  max-width: $root-max-width;
+  box-shadow: $base-box-shadow;
+  margin: $root-margin;
 }
 
 body *:not(svg) {
@@ -35,15 +43,21 @@ body *:not(svg) {
   line-height: $base-line-height;
 }
 
-b {
-  font-weight: $font-bold;
+strong {
+  font-weight: $font-bold !important;
 }
 
 header a {
   text-decoration: unset;
 }
 
-.rm-hero-slider {
-  width: 100%;
-  height: 100%;
+@media (max-width: $screen-xl) {
+  #root {
+    background: #fff;
+    transition: margin 0.5s;
+    height: auto;
+    min-height: unset;
+    box-shadow: unset;
+    margin: 0 !important;
+  }
 }

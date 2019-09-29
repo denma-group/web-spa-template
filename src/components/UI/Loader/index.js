@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-// components
+// Components
 import InfinityLoader from './Loaders/InfinityLoader';
 import EclipseLoader from './Loaders/EclipseLoader';
 

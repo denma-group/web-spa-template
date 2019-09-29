@@ -24,6 +24,12 @@ const H3 = ({ children, ...rest }) => (
   </Typography>
 );
 
+const H4 = ({ children, ...rest }) => (
+  <Typography variant="h4" {...rest}>
+    {children}
+  </Typography>
+);
+
 const H6 = ({ children, ...rest }) => (
   <Typography variant="h6" {...rest}>
     {children}
@@ -75,7 +81,7 @@ const StyledH2 = styled(H2)`
     font-size: 34px;
     line-height: 1.7;
     font-weight: 400;
-    ${({ css }) => css};
+    color: ${({ theme, color }) => (color ? theme[color] : undefined)};
     @media (max-width: ${({ theme }) => theme.screenMd}) {
       font-size: 28px;
     }
@@ -96,17 +102,36 @@ const StyledH2 = styled(H2)`
 
 const StyledH3 = styled(H3)`
   &&& {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.6;
     font-weight: 300;
+    color: ${({ theme, color }) => (color ? theme[color] : undefined)};
     @media (max-width: ${({ theme }) => theme.screenMd}) {
-      font-size: 22px;
+      font-size: 19px;
     }
     @media (max-width: ${({ theme }) => theme.screenSm}) {
-      font-size: 20px;
+      font-size: 17px;
     }
-    @media (max-width: ${({ theme }) => theme.screenXs}) {
-      font-size: 18px;
+    ${({ css }) => css};
+    * {
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+    }
+  }
+`;
+
+const StyledH4 = styled(H4)`
+  &&& {
+    font-size: 17px;
+    line-height: 1.6;
+    font-weight: 300;
+    color: ${({ theme, color }) => (color ? theme[color] : undefined)};
+    @media (max-width: ${({ theme }) => theme.screenMd}) {
+      font-size: 16px;
+    }
+    @media (max-width: ${({ theme }) => theme.screenSm}) {
+      font-size: 15px;
     }
     ${({ css }) => css};
     * {
@@ -133,7 +158,7 @@ const StyledH6 = styled(H6)`
 
 const StyledP = styled(P)`
   &&& {
-    font-size: 16px;
+    font-size: 15px;
     ${({ css }) => css};
     /* TODO: screen size changes */
   }
@@ -141,7 +166,7 @@ const StyledP = styled(P)`
 
 const StyledCaption = styled(Caption)`
   &&& {
-    font-size: 16px;
+    font-size: 15px;
     ${({ css }) => css};
     color: ${({ theme, color }) => theme[color] || theme.secondary};
     /* TODO: screen size changes */
@@ -169,6 +194,7 @@ const propTypes = {
 H1.propTypes = propTypes;
 H2.propTypes = propTypes;
 H3.propTypes = propTypes;
+H4.propTypes = propTypes;
 H6.propTypes = propTypes;
 P.propTypes = propTypes;
 Caption.propTypes = propTypes;
@@ -178,6 +204,7 @@ export {
   StyledH1 as H1,
   StyledH2 as H2,
   StyledH3 as H3,
+  StyledH4 as H4,
   StyledH6 as H6,
   StyledP as P,
   StyledSpan as Span,

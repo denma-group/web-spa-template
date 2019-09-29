@@ -1,26 +1,33 @@
 @import "theme";
+@import "typography";
 
 // Colors
-$primary:             $brand-dark-red;
-$secondary:           $brand-red;
-$terciary:            $brand-orange;
-$success:           #28A745;
-$danger:            #DC3545;
+$primary:             $brand-primary;
+$secondary:           $brand-secondary;
+$terciary:            $brand-terciary;
 $white-color:         $brand-white;
 $dark-color:          $brand-black;
-$light-dark-color:    $brand-light-black;
-
-// Our Works Colors
-$servify:             #1FA5CA;
-$bonpreu-foods:       #FF7043;
-$tire-outlet:         #FFC107;
+$gray-color:          #5A5A5A;
+$divider-color:       #EAEAEA;
+$recreational:        #107e22;
+$limited:             #515ED3;
+$advanced:            #FA9209;
+$expert:              #FF1B26;
 
 // Borders
 $base-border:     1px solid $terciary;
 $base-radius:     0.25rem;
 
+// Body
+$body-background: #f0f0f0;
+$root-margin: 60px auto 80px;
+$root-max-width: 1200px;
+
+// CodeLab
+$code-lab-side-drawer-closed-width: 56px;
+
 // Shadows
-$base-box-shadow:   rgba(darken($brand-black, 20%), 0.1) 0 0 3.5px;
+$base-box-shadow:   rgba(darken($brand-black, 33%), 0.1) 0 0 5px;
 $navbar-box-shadow: rgba(darken($brand-black, 20%), 0.2) 0 1.5px 2.5px 0px;
 
 // Media queries breakpoints
