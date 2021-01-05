@@ -5,7 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.4.1",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "hero-slider": "^2.0.3",
     "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.15",
